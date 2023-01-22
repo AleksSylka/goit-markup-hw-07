@@ -127,6 +127,13 @@ body {
         }
 }
 
+@media screen and (min-width: 1200px) {
+    .contacts {
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+    }
+}
         /*LOGO*/
 .logotype {
     font-family: var(--logo-font);
@@ -244,6 +251,9 @@ body {
 .link-style:focus {
     color: var(--ocean-link-icon);
 }
+.link-style-menu {
+    color: var(--ocean-link-icon);
+}
 
 @media screen and (min-width: 768px) /*Tablet screen*/{
     .link-style {
@@ -265,11 +275,16 @@ body {
 }
 .contacts-tel-mobile {
     font-weight: 600;
-    font-size: 36px;
+    font-size: 24px;
     line-height: 1.11;
     text-transform: capitalize;
     color: var(--primary-brand-color);
     text-decoration: none;
+}
+@media screen and (min-width: 425px) {
+    .contacts-tel-mobile {
+        font-size: 36px;
+    }
 }
 .contacts-mail-mobile {
     font-size: 20px;
@@ -364,6 +379,15 @@ body {
     background-size: 428px 432px;
 }
 
+@media screen and (max-width: 343px) {
+    .banner {
+        max-height: 426px;
+    }
+    .title-first-level {
+        font-size: 32px;
+    }
+}
+
 @media  (min-device-pixel-ratio: 2) , 
 (min-resolution: 2dppx), 
 (min-resolution: 192dpi) {
@@ -424,6 +448,16 @@ body {
     color: var(--color-white);
     text-align: center;
     text-transform: capitalize;
+}
+
+@media screen and (max-width: 343px) {
+    .banner {
+        max-height: 426px;
+    }
+
+    .title-first-level {
+        font-size: 32px;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -651,14 +685,37 @@ body {
 }
 .customers-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    /*margin-top: 72px;*/
+    flex-direction: column;
+    align-items: center;
+    /*justify-content: space-around;
+    margin-top: 72px;*/
+}
+@media screen and (min-width: 427px) and (max-width: 767.98px) {
+    .customers-item:nth-child(2n+1) {
+        margin-right: 16px;
+    }
+    .customers-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199.98px) {
+    .customers-list {
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .customers-item:nth-child(3n+2) {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
 }
 
 @media screen and (min-width: 1200px) {
     .customers-list {
-        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
     }
 }
 .customers-item {
@@ -678,7 +735,7 @@ body {
 }
 
 .customer-icon {
-    width: 110px;
+    width: 108px;
     height: 56px;
     fill: var(--color-icon-customers);
     transition-property: fill;
@@ -742,8 +799,9 @@ body {
 }
 @media screen and (min-width: 768px) and (max-width: 1199.98px) {
     .footer-list {
-        padding-left: 108px;
-        padding-right: 108px;
+        /*padding-left: 108px;
+        padding-right: 108px;*/
+        width: 565px;
     }
 }
 @media screen and (min-width: 1200px) {
@@ -900,7 +958,8 @@ body {
 
     /*Modal window*/
 .back-modul {
-    position: absolute;
+    position: fixed;
+    overflow: auto;
     z-index: 100;
     top: 0;
     left: 0;
@@ -923,16 +982,18 @@ body {
     }
 }
 
+.modul-window {
+    background: #FCFCFC;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 72px;
+    padding-bottom: 24px;
+}
 @media screen and (min-width: 768px) {
     .modul-window {
         position: absolute;
-        background: #FCFCFC;
-        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
-        border-radius: 4px;
-        padding-left: 16px;
-        padding-right: 16px;
-        padding-top: 72px;
-        padding-bottom: 24px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -951,20 +1012,18 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);*/
-        
-
         position: relative;
-        background: #FCFCFC;
-        box-shadow: 0px 1px 1px rgb(0 0 0 / 14%), 0px 1px 3px rgb(0 0 0 / 12%), 0px 2px 1px rgb(0 0 0 / 20%);
-        border-radius: 4px;
-        padding-left: 16px;
-        padding-right: 16px;
-        padding-top: 72px;
-        padding-bottom: 24px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 96px;
         max-width: 392px;
+    }
+}
+
+@media screen and (orientation: landscape) and (min-width:768px) {
+    .modul-window {
+        top: 10%;
+        transform: translateX(-50%);
     }
 }
 
